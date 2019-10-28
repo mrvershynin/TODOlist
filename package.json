@@ -11,7 +11,9 @@
     "type": "git",
     "url": "git+https://github.com/mrvershynin/TODOlist.git"
   },
-  "presets": ["airbnb"],
+  "presets": [
+    "airbnb"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
