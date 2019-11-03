@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TODOlist</title>
+	<link rel="stylesheet" href="dist/style.css">
+</head>
+<header>
+	<span>TODOlist</span>
+</header>
+<body>
+	<input type="text" value="search by title">
+	<select name="" id="">
+		<option value="">all</option>
+		<option value="">open</option>
+		<option value="">done</option>
+	</select>
+	<select name="" id="">
+		<option value="">all</option>
+		<option value="">hight</option>
+		<option value="">normal</option>
+		<option value="">low</option>
+	</select>
+	<button type="button" id="create">Create</button>
+<!--Modal window-->
+	<div id="createModal" class="modal">
+		<div class="modal-content">
+			<p>Title:</p>
+			<input id="new-title" type="text" placeholder="Title"><br>
+			<p>Description:</p>
+			<textarea id="new-description" cols="20" rows="7" placeholder="Description..."></textarea><br>
+			<select name="" id="priority">
+				<option id="high" value="High">High</option>
+				<option id="normal" value="Normal">Normal</option>
+				<option id="low" value="Low">Low</option>
+			</select>
+			<button type="button" id="cancel">Cancel</button>
+			<button type="button" id="save">Save</button>
+		</div>
+	</div>
+<!--Task list-->
+	<ul id="tasks"></ul>
+	<script type="text/javascript" src="dist/app.js"></script>
+</body>
+<footer>
+	<span>Dima Vershinin</span>
+</footer>
+</html>
