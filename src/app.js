@@ -7,6 +7,12 @@ let newTitle = document.getElementById('new-title');
 let tasksList = document.getElementById('tasks');
 let newDescription = document.getElementById('new-description');
 let priorityTask = document.getElementById('priority');
+let selectStatus = document.getElementById('select-status');
+let selectPriority = document.getElementById('select-priority');
+let searchTitle = document.getElementById('search');
+
+
+
 
 
 //Open modal window with form for create new task
@@ -21,10 +27,13 @@ function closeModal(){
 }
 cancelButton.onclick = closeModal;
 
+
+
 //
 function createNewElement(title, description, priority){
 	let listItem = document.createElement('li');
 	listItem.className = 'task';
+	listItem.style.display = 'block';
 	let titleTask = document.createElement('title');
 	titleTask.innerText = title;
 	let descriptionTask = document.createElement('description');
@@ -83,13 +92,13 @@ function doneTask(){
 	checkBox.setAttribute('type', 'checkbox');
 	checkBox.checked = true;
 	taskBody.appendChild(checkBox);
-	taskBody.className = 'task-done';	
+	taskBody.id = 'task-done';	
 	checkBox.onclick = unDoneTask;
 }
 //Mark task as not completed
 function unDoneTask(){
 	let li = this.parentNode;
-	li.className = 'task';
+	li.id = 'task';
 	let checked = li.querySelector('input');
 	li.removeChild(checked);
 }
@@ -97,7 +106,7 @@ function editTask(){
 	let list = this.parentNode;
 	let ul = list.parentNode;
 	let task = ul.parentNode;
-	modal.style.display = "block";
+	modal.style.display = 'block';
 	let changeTitle = task.querySelector('title').textContent;
 	let changeDescription = task.querySelector('description').textContent;
 	newTitle.value = changeTitle;
@@ -121,5 +130,28 @@ function bindTaskEvent(listItem, statusEvent){
 	deleteButton.onclick = deleteTask;
 }
 
+//Filter by status
+function myStat(){
+	let selectStatus = document.getElementById('select-status').value;
+	console.log(selectStatus);
+	if(selectStatus == 'open'){
+		document.getElementById('task').style.display = 'block';
+		document.getElementById('task-done').style.display = 'none';
+	}
+	else if(selectStatus == 'done'){
+		document.getElementById('task').style.display = 'none';
+		document.getElementById('task-done').style.display = 'block';
+	}
+	else{
+		document.getElementById('task-done').style.display = 'block';
+		document.getElementById('task').style.display  = 'block';
+	}
+}
 
+
+//Filter by status
+function myPrior(){
+	let selectPrior = document.getElementsByTagName('priority').textContent;
+	console.log(selectPrior);
+}
 

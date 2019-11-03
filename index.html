@@ -9,17 +9,17 @@
 	<span>TODOlist</span>
 </header>
 <body>
-	<input type="text" value="search by title">
-	<select name="" id="">
-		<option value="">all</option>
-		<option value="">open</option>
-		<option value="">done</option>
+	<input id="search" type="text" value="search by title">
+	<select id="select-status" onchange="myStat()">
+		<option value="all">all</option>
+		<option value="open">open</option>
+		<option value="done">done</option>
 	</select>
-	<select name="" id="">
-		<option value="">all</option>
-		<option value="">hight</option>
-		<option value="">normal</option>
-		<option value="">low</option>
+	<select id="select-priority" onchange="myPrior()">
+		<option value="all-priority">all</option>
+		<option value="high">hight</option>
+		<option value="normal">normal</option>
+		<option value="low">low</option>
 	</select>
 	<button type="button" id="create">Create</button>
 <!--Modal window-->
@@ -40,9 +40,10 @@
 	</div>
 <!--Task list-->
 	<ul id="tasks"></ul>
-	<script type="text/javascript" src="dist/app.js"></script>
+	
 </body>
 <footer>
 	<span>Dima Vershinin</span>
 </footer>
+<script async type="text/javascript" src="dist/app.js"></script>
 </html>

@@ -32,8 +32,9 @@ ul.list-container {
 li {
   list-style-type: none; }
 
-.task-done {
-  background-color: grey; }
+#task-done {
+  background-color: grey;
+  display: block; }
 
 .task {
   background-color: white; }
