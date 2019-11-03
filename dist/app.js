@@ -93,7 +93,7 @@ function doneTask() {
 //Mark task as not completed
 function unDoneTask() {
 	var li = this.parentNode;
-	li.id = 'task';
+	li.className = 'task' + ' ' + 'item' + ' ' + 'priority';
 	var checked = li.querySelector('input');
 	li.removeChild(checked);
 }
@@ -161,7 +161,7 @@ function myFunction() {
 	var li = ul.getElementsByTagName('li');
 	for (var i = 0; i < li.length; i++) {
 		var title = li[i].getElementsByTagName('title')[0];
-		var txtValue = title.textContent;
+		var txtValue = title.textContent || title.innerText;
 		if (txtValue.toUpperCase().indexOf(filter) > -1) {
 			li[i].style.display = 'block';
 		} else {

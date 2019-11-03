@@ -5,10 +5,29 @@
 	<title>TODOlist</title>
 	<link rel="stylesheet" href="dist/style.css">
 </head>
-<header>
-	<span>TODOlist</span>
-</header>
 <body>
+	<!--Modal window-->
+	<div id="createModal" class="modal">
+		<div class="modal-content">
+			<p class="title-form">Title:</p>
+			<input id="new-title" type="text" placeholder="Title"><br>
+			<p>Description:</p>
+			<textarea id="new-description" cols="20" rows="7" placeholder="Description..."></textarea><br>
+			<select id="priority">
+				<option id="high" value="High">High</option>
+				<option id="normal" value="Normal">Normal</option>
+				<option id="low" value="Low">Low</option>
+			</select> <br>
+			<div class="button-container">
+				<button type="button" id="cancel">Cancel</button>
+				<button type="button" id="save">Save</button>
+			</div>
+		</div>
+	</div>
+	<header>
+		<span>TODOlist</span>
+	</header>
+	<div class="container">
 	<input type="text" id="search" autocomplete="off" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
 	<select id="select-status">
 		<option value="item">all</option>
@@ -22,28 +41,15 @@
 		<option value="Low">low</option>
 	</select>
 	<button type="button" id="create">Create</button>
-<!--Modal window-->
-	<div id="createModal" class="modal">
-		<div class="modal-content">
-			<p>Title:</p>
-			<input id="new-title" type="text" placeholder="Title"><br>
-			<p>Description:</p>
-			<textarea id="new-description" cols="20" rows="7" placeholder="Description..."></textarea><br>
-			<select name="" id="priority">
-				<option id="high" value="High">High</option>
-				<option id="normal" value="Normal">Normal</option>
-				<option id="low" value="Low">Low</option>
-			</select>
-			<button type="button" id="cancel">Cancel</button>
-			<button type="button" id="save">Save</button>
-		</div>
-	</div>
+
 <!--Task list-->
 	<ul id="tasks"></ul>
+	</div>
 	
+	<footer>
+		<span>Dima Vershinin</span>
+	</footer>
 </body>
-<footer>
-	<span>Dima Vershinin</span>
-</footer>
+
 <script async type="text/javascript" src="dist/app.js"></script>
 </html>

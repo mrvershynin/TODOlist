@@ -1,6 +1,33 @@
+$font-stack: Helvetica, sans-serif
+$size-btn: 30px
+$font-size: 1.5em
+
+header
+	display: block
+	margin: 20px auto
+	border-bottom: 1px solid block 
+body
+	display: block
+	font-family: $font-stack
+	margin: 0px 0px
+	position: relative
+ul 
+	padding: 0px
+.container
+	display: block
+	width: 100%
+	height: 100%
+	position: relative
+	max-height: 100%
+	font-size: $font-size
+	text-align: center
 footer
+	display: block
 	position: fixed
 	bottom: 0
+	width: 100%
+	padding: 30px auto
+	border-top: 1px solid black
 .modal
 	display: none
 	position: fixed
@@ -11,18 +38,52 @@ footer
 	height: 100%
 	overflow: auto
 	background-color: rgba(0,0,0,0.8)
+#new-title
+	width: 100%
+	font-size: 1em
 .modal-content
 	background-color: #fefefe
 	margin: 15% auto
 	padding: 20px
 	border: 1px solid #888
-	width: 25%
+	width: 20%
 textarea
-	width: 100px
+	width: 100%
+	text-align: left
+	position: relative
+.item
+	position: relative
+	border: 1px solid black
+	margin: 10px 10px
+	max-width: 25%
+	float: left
+	width: 30%
+	height: 300px
 .tasks
 	display: block
 ul.list-container
 	display: none
+	position: absolute
+.list-container
+	position: absolute
+	bottom: -60px
+	right: 0px
+	border: 1px solid black
+	z-index: 1
+	background-color: white
+	padding: 0px !important
+.list-container li:hover
+	background-color: grey
+.task-done input
+	position: absolute
+	top: -15px
+	right: -35px
+	font-size: 5em
+.list-container li
+	display: block
+	cursor: pointer
+	border: 1px solid black
+	padding: 0px 10px
 li
 	list-style-type: none
 .task-done
@@ -30,10 +91,47 @@ li
 	display: block
 .task
 	background-color: white
-title
+title, description
 	display: block
-description
+	margin: 20px 10px
+	text-align: left
+	font-size: $font-size - 0.5
+.item priority
+	position: absolute
+    bottom: 10px
+    left: 10px
+	text-align: left
+	border-radius: 5px
+	border: 2px dashed black
+	margin: 20px 5px
+.item button
+	position: absolute
+    bottom: 10px
+    right: 10px
+    margin: 20px 5px
+button
+	border-radius: 5px
+	height: $size-btn
+select
+	border-radius: 0px
+	height: $size-btn
+input
+	height: $size-btn
+#priority
+	position: block
 	display: block
-
-
+	width: 100%
+	margin: 15px auto
+.button-container
+	display: block
+#cancel, #save
+	width: 40%
+#save
+	position: relative
+	right: 0px
+#select-status, #select-priority
+	width: 10em
+#search
+	width: 20em
+	height: $font-size+0.8
 

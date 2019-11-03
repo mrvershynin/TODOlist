@@ -93,7 +93,7 @@ function doneTask(){
 //Mark task as not completed
 function unDoneTask(){
 	let li = this.parentNode;
-	li.id = 'task';
+	li.className = 'task' + ' ' + 'item' + ' ' + 'priority';
 	let checked = li.querySelector('input');
 	li.removeChild(checked);
 }
@@ -164,7 +164,7 @@ function myFunction() {
     let li = ul.getElementsByTagName('li');
     for (let i = 0; i < li.length; i++) {
         let title = li[i].getElementsByTagName('title')[0];
-        let txtValue = title.textContent;
+        let txtValue = title.textContent || title.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
             li[i].style.display = 'block';
         } 
