@@ -156,3 +156,20 @@ filterPriority.onchange = function(){
 }
 
 
+//Filter for title
+function myFunction() {
+    let inputSearch = document.getElementById('search');
+    let filter = inputSearch.value.toUpperCase();
+    let ul = document.getElementById('tasks');
+    let li = ul.getElementsByTagName('li');
+    for (let i = 0; i < li.length; i++) {
+        let title = li[i].getElementsByTagName('title')[0];
+        let txtValue = title.textContent;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = 'block';
+        } 
+        else {
+            li[i].style.display = 'none';
+        }
+    }
+}

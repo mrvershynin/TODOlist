@@ -152,3 +152,20 @@ filterPriority.onchange = function () {
 		}
 	}
 };
+
+//Filter for title
+function myFunction() {
+	var inputSearch = document.getElementById('search');
+	var filter = inputSearch.value.toUpperCase();
+	var ul = document.getElementById('tasks');
+	var li = ul.getElementsByTagName('li');
+	for (var i = 0; i < li.length; i++) {
+		var title = li[i].getElementsByTagName('title')[0];
+		var txtValue = title.textContent;
+		if (txtValue.toUpperCase().indexOf(filter) > -1) {
+			li[i].style.display = 'block';
+		} else {
+			li[i].style.display = 'none';
+		}
+	}
+}
