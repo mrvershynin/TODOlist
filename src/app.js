@@ -12,9 +12,6 @@ let selectPriority = document.getElementById('select-priority');
 let searchTitle = document.getElementById('search');
 
 
-
-
-
 //Open modal window with form for create new task
 createButton.onclick = function () {
 	modal.style.display = "block";
@@ -27,12 +24,10 @@ function closeModal(){
 }
 cancelButton.onclick = closeModal;
 
-
-
 //
 function createNewElement(title, description, priority){
 	let listItem = document.createElement('li');
-	listItem.className = 'task';
+	listItem.className = 'task' + ' ' + 'item' + ' ' + priority;
 	listItem.style.display = 'block';
 	let titleTask = document.createElement('title');
 	titleTask.innerText = title;
@@ -92,7 +87,7 @@ function doneTask(){
 	checkBox.setAttribute('type', 'checkbox');
 	checkBox.checked = true;
 	taskBody.appendChild(checkBox);
-	taskBody.id = 'task-done';	
+	taskBody.className = 'task-done' + ' ' + 'item' + ' ' + 'priority';	
 	checkBox.onclick = unDoneTask;
 }
 //Mark task as not completed
@@ -131,27 +126,33 @@ function bindTaskEvent(listItem, statusEvent){
 }
 
 //Filter by status
-function myStat(){
-	let selectStatus = document.getElementById('select-status').value;
-	console.log(selectStatus);
-	if(selectStatus == 'open'){
-		document.getElementById('task').style.display = 'block';
-		document.getElementById('task-done').style.display = 'none';
-	}
-	else if(selectStatus == 'done'){
-		document.getElementById('task').style.display = 'none';
-		document.getElementById('task-done').style.display = 'block';
-	}
-	else{
-		document.getElementById('task-done').style.display = 'block';
-		document.getElementById('task').style.display  = 'block';
-	}
+let filterStatus = document.getElementById('select-status');
+let itemsElementsStatus = document.getElementById('tasks');
+filterStatus.onchange = function(){
+	let itemsSt = itemsElementsStatus.getElementsByClassName('item');
+	for (let i = 0; i < itemsSt.length; i++) {
+  	if (itemsSt[i].classList.contains(this.value)) {
+    	itemsSt[i].style.display = 'block';
+    } 
+    else {
+    	itemsSt[i].style.display = 'none';
+    }
+  }
 }
 
-
-//Filter by status
-function myPrior(){
-	let selectPrior = document.getElementsByTagName('priority').textContent;
-	console.log(selectPrior);
+//Filter by priority
+let filterPriority = document.getElementById('select-priority');
+let itemsElementsPriority = document.getElementById('tasks');
+filterPriority.onchange = function(){
+	let items = itemsElementsPriority.getElementsByClassName('item');
+	for (let i = 0; i < items.length; i++) {
+  	if (items[i].classList.contains(this.value)) {
+    	items[i].style.display = 'block';
+    } 
+    else {
+    	items[i].style.display = 'none';
+    }
+  }
 }
+
 

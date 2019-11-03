@@ -27,7 +27,7 @@ cancelButton.onclick = closeModal;
 //
 function createNewElement(title, description, priority) {
 	var listItem = document.createElement('li');
-	listItem.className = 'task';
+	listItem.className = 'task' + ' ' + 'item' + ' ' + priority;
 	listItem.style.display = 'block';
 	var titleTask = document.createElement('title');
 	titleTask.innerText = title;
@@ -87,7 +87,7 @@ function doneTask() {
 	checkBox.setAttribute('type', 'checkbox');
 	checkBox.checked = true;
 	taskBody.appendChild(checkBox);
-	taskBody.id = 'task-done';
+	taskBody.className = 'task-done' + ' ' + 'item' + ' ' + 'priority';
 	checkBox.onclick = unDoneTask;
 }
 //Mark task as not completed
@@ -126,23 +126,29 @@ function bindTaskEvent(listItem, statusEvent) {
 }
 
 //Filter by status
-function myStat() {
-	var selectStatus = document.getElementById('select-status').value;
-	console.log(selectStatus);
-	if (selectStatus == 'open') {
-		document.getElementById('task').style.display = 'block';
-		document.getElementById('task-done').style.display = 'none';
-	} else if (selectStatus == 'done') {
-		document.getElementById('task').style.display = 'none';
-		document.getElementById('task-done').style.display = 'block';
-	} else {
-		document.getElementById('task-done').style.display = 'block';
-		document.getElementById('task').style.display = 'block';
+var filterStatus = document.getElementById('select-status');
+var itemsElementsStatus = document.getElementById('tasks');
+filterStatus.onchange = function () {
+	var itemsSt = itemsElementsStatus.getElementsByClassName('item');
+	for (var i = 0; i < itemsSt.length; i++) {
+		if (itemsSt[i].classList.contains(this.value)) {
+			itemsSt[i].style.display = 'block';
+		} else {
+			itemsSt[i].style.display = 'none';
+		}
 	}
-}
+};
 
-//Filter by status
-function myPrior() {
-	var selectPrior = document.getElementsByTagName('priority').textContent;
-	console.log(selectPrior);
-}
+//Filter by priority
+var filterPriority = document.getElementById('select-priority');
+var itemsElementsPriority = document.getElementById('tasks');
+filterPriority.onchange = function () {
+	var items = itemsElementsPriority.getElementsByClassName('item');
+	for (var i = 0; i < items.length; i++) {
+		if (items[i].classList.contains(this.value)) {
+			items[i].style.display = 'block';
+		} else {
+			items[i].style.display = 'none';
+		}
+	}
+};
